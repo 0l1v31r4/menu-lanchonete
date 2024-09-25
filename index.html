@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanchonete</title>
+    <link rel="shortcut icon" href="https://i.imgur.com/4Vzl3nn.jpeg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body{
+            background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2urLIfisrvlK8uRJQqeYJApRbNdMk1QkwabXQRvXkhB5SfOHF4vI8P681bLSnjq0-A-n6kP2ZTMFTtV8KKOWWorKiQgAdp-6Xy69velk8dlYVSmnc6QICyr4-w00vftla9MKZ8heUdxMw/s1600/giphy+%25281%2529.gif");
+        }
+
+      .container{
+            background: #f1f1f1;
+            margin-top: 10%;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input{
+        text-align: center;
+      }
+       
+      input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        #imprimirPedido{
+            color: #000;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function enviarPedido() {
+            let pedido = parseInt(document.getElementById("pedido").value);
+            let quantPedido = parseInt(document.getElementById("quantPedido").value);
+            let pedidoLimparInput = parseInt(document.getElementById("pedido").value = "");
+            let quantPedidoLimparInput = parseInt(document.getElementById("quantPedido").value = "");
+            let preco = 0;
+            let valorTotal = 0;
+
+            if(isNaN(pedido) || isNaN(quantPedido) || quantPedido <= 0){
+                Swal.fire({
+                        title: "Seu Pedido:",
+                        text: "Pedido inválido!",
+                        icon: 'error', // Ícone de sucesso (pode ser 'warning', 'error', etc.)
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false, // Mantém o popup aberto mesmo ao clicar fora dele
+                        customClass: {
+                            popup: 'custom-alert', // Adicione uma classe personalizada para estilos adicionais
+                        }
+                        }).then((result) => {
+                            // Verifica se o botão "OK" foi clicado
+                            if (result.isConfirmed) {
+                                // Fecha o popup ao clicar no botão "OK"
+                                Swal.close();
+                            }
+                        });
+                return;
+            }
+            else{
+                switch(pedido){
+                    case 100:{
+                        preco = 15.00;
+                        valorTotal = preco * quantPedido;
+                        Swal.fire({
+                        title: "Seu Pedido:",
+                        text: "HAMBURGER🍔, 💰preço: " + preco + " reais, quantidade: " + quantPedido + ", valor total: 💰" + valorTotal + " reais",
+                        icon: 'success', // Ícone de sucesso (pode ser 'warning', 'error', etc.)
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false, // Mantém o popup aberto mesmo ao clicar fora dele
+                        customClass: {
+                            popup: 'custom-alert', // Adicione uma classe personalizada para estilos adicionais
+                        }
+                        }).then((result) => {
+                            // Verifica se o botão "OK" foi clicado
+                            if (result.isConfirmed) {
+                                // Fecha o popup ao clicar no botão "OK"
+                                Swal.close();
+                            }
+                        });
+                        break;
+                    }
+                    case 101:{
+                        preco = 5.00;
+                        valorTotal = preco * quantPedido;
+                        Swal.fire({
+                        title: "Seu Pedido:",
+                        text: "Pedido MISTO QUENTE🥪, preço: 💰" + preco + " reais, quantidade: " + quantPedido + ", valor total: 💰" + valorTotal + " reais",
+                        icon: 'success', // Ícone de sucesso (pode ser 'warning', 'error', etc.)
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false, // Mantém o popup aberto mesmo ao clicar fora dele
+                        customClass: {
+                            popup: 'custom-alert', // Adicione uma classe personalizada para estilos adicionais
+                        }
+                        }).then((result) => {
+                            // Verifica se o botão "OK" foi clicado
+                            if (result.isConfirmed) {
+                                // Fecha o popup ao clicar no botão "OK"
+                                Swal.close();
+                            }
+                        });
+                        break;
+                    }
+                    case 102:{
+                        preco = 7.00;
+                        valorTotal = preco * quantPedido;
+                        Swal.fire({
+                        title: "Seu Pedido:",
+                        text: "Pedido AMERICANO🥪, preço: 💰" + preco + " reais, quantidade: " + quantPedido + ", valor total: 💰" + valorTotal + " reais",
+                        icon: 'success', // Ícone de sucesso (pode ser 'warning', 'error', etc.)
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false, // Mantém o popup aberto mesmo ao clicar fora dele
+                        customClass: {
+                            popup: 'custom-alert', // Adicione uma classe personalizada para estilos adicionais
+                        }
+                        }).then((result) => {
+                            // Verifica se o botão "OK" foi clicado
+                            if (result.isConfirmed) {
+                                // Fecha o popup ao clicar no botão "OK"
+                                Swal.close();
+                            }
+                        });
+                        break;
+                    }
+                    default:{
+                        Swal.fire({
+                        title: "Seu Pedido:",
+                        text: "Pedido não encontrado!",
+                        icon: 'error', // Ícone de sucesso (pode ser 'warning', 'error', etc.)
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false, // Mantém o popup aberto mesmo ao clicar fora dele
+                        customClass: {
+                            popup: 'custom-alert', // Adicione uma classe personalizada para estilos adicionais
+                        }
+                        }).then((result) => {
+                            // Verifica se o botão "OK" foi clicado
+                            if (result.isConfirmed) {
+                                // Fecha o popup ao clicar no botão "OK"
+                                Swal.close();
+                            }
+                        });
+                        break;
+                    }
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <h1>Lanchonete</h1><br>
+            <p>
+                <strong>Cardápio de Lanches:</strong><br><br>
+                100 - HAMBURGER🍔 - R$ 15.00<br>
+                101 - MISTO QUENTE🥪 - R$ 5.00<br>
+                102 - AMERICANO🥪 - R$ 7.00<br>
+            </p><br>
+            <form>
+                <label for="pedido">Faça seu pedido:</label>
+                <input class="form-control" type="number" id="pedido" name="pedido">
+                <br>
+                <label for="quantidade">Quantidade:</label>
+                <input class="form-control" type="number" name="" id="quantPedido">
+                <br><br>
+                <button class="btn btn-success" type="button" onclick="enviarPedido();" style="margin-right: 12%; width: 100%;">Enviar Pedido</button>
+            </form><br>
+            <h1 id="imprimirPedido"></h1>
+        </div>
+    </center>
+</body>
+</html>
